@@ -9,6 +9,6 @@ public class TestController {
     // Simple endpoint to check app health
     @GetMapping("/hello")
     public String sayHello() {
-        return "Hello from Spring Boot on EC2!";
+        return "Hello from Spring Boot!";
     }
 }
