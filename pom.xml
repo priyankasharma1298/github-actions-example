@@ -50,6 +50,5 @@
 			</plugin>
 		</plugins>
 		<finalName>springboot-docker-image</finalName>
-	</build>
 
 </project>
