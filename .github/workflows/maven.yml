@@ -36,6 +36,19 @@ jobs:
       run : docker build -t priyanka1298/springboot-docker-image .
     - name: Push image to docker hub
       run : docker push priyanka1298/springboot-docker-image:latest 
+
+  deploy:
+    needs: build
+    runs-on: [aws-ec2]
+    steps:
+      - name: Pull the image from docker hub
+        run : docker pull priyanka1298/springboot-docker-image:latest
+      - name: Delete old container 
+        run : docker rm -f springboot-example-container
+      - name: Run dockercontainer
+        run : docker run -d -p 8080:8080 --name springboot-example-container  priyanka1298/springboot-docker-image
+        
+    
       
 
   
